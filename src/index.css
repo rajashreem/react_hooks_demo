@@ -30,6 +30,8 @@ input {
 
 button {
   height: 25px;
+  margin: 2px;
+  font-size: 14px;
 }
 
 .quote {
