@@ -1,6 +1,7 @@
 import React from 'react';
 import Query from './Query';
 import Quote from './Quote';
+import Countries from './Countries';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <h1>Hello</h1>
       <Query />
       <Quote />
+      <Countries />
     </div>
   );
 }
