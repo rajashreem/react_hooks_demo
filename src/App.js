@@ -8,7 +8,9 @@ function App() {
     <div className="App">
       <h1>Hello</h1>
       <Query />
+      <hr />
       <Quote />
+      <hr />
       <Countries />
     </div>
   );

@@ -1,18 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import useOpenApi from './useOpenApi';
 
-function Countries() {
+function Countries(props) {
   const countries = useOpenApi({results: []}, 'https://api.openaq.org/v1/countries');
+  const [selectedCountryCode, setSelectedCountryCode] = useState('IN');
+
+  const countryToDisplay = countries.results.find((country) => country.code === selectedCountryCode);
 
   return(
     <div>
       <h2>Countries</h2>
-      {
-        countries.results.map(country => {
-          const {name, code} = country;
-          return <p key={code}>{code}-{name}</p>
-        })        
-      }
+      <select value={selectedCountryCode} onChange={(event) => setSelectedCountryCode(event.target.value)}>
+        {
+          countries.results.map(country => {
+            return <option key={country.code} value={country.code}>{country.code}</option>
+          })
+        }
+      </select>
+      
+      {countryToDisplay && <p>Country with country code {countryToDisplay.code} is {countryToDisplay.name}</p>}
     </div>
   )
 }
