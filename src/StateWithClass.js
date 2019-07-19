@@ -8,6 +8,14 @@ class StateWithClass extends React.Component {
     }
   }
 
+  componentDidMount() {
+    document.title = `${this.state.count} times`;
+  }
+
+  componentDidUpdate() {
+    document.title = `${this.state.count} times`;
+  }
+
   render() {
     return(
       <div>
