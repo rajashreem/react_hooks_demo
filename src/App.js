@@ -1,13 +1,11 @@
 import React from 'react';
-import StateWithEffect from './StateWithEffect';
-import StateWithClass from './StateWithClass';
+import Query from './Query';
 
 function App() {
   return (
     <div className="App">
       <h1>Hello</h1>
-      <StateWithEffect />
-      <StateWithClass />
+      <Query />
     </div>
   );
 }
