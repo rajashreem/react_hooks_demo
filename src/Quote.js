@@ -1,14 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import useOpenApi from './useOpenApi';
 
 function Quote() {
-  const [quoteObject, setQuoteObject] = useState({}); 
-
-  useEffect(() => {
-    fetch('http://quotes.stormconsultancy.co.uk/random.json')
-    .then((response) => response.json())
-    .then(json => setQuoteObject(json))
-  }, []);
-
+  const quoteObject = useOpenApi({}, 'http://quotes.stormconsultancy.co.uk/random.json');
   const {quote, author} = quoteObject;
 
   return(

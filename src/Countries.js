@@ -1,15 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import useOpenApi from './useOpenApi';
 
 function Countries() {
-  const [countries, setCountries] = useState({results: []}); 
-
-  useEffect(() => {
-    fetch('https://api.openaq.org/v1/countries')
-    .then((response) => response.json())
-    .then(json => {
-      setCountries(json);
-    })
-  }, []);
+  const countries = useOpenApi({results: []}, 'https://api.openaq.org/v1/countries');
 
   return(
     <div>
